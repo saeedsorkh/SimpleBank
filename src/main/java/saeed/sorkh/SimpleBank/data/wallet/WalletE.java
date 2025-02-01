@@ -28,7 +28,7 @@ public class WalletE {
     private Date creationDate;
 
     @Column(nullable = false, columnDefinition = "BIGINT DEFAULT 0")
-    private Long balance;
+    private Long balance = 0L;
 
     @OneToOne(mappedBy = "wallet", fetch = FetchType.LAZY)
     private UserE user;

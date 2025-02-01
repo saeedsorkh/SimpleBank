@@ -26,4 +26,10 @@ public class WalletService {
         return walletRepository.save(wallet);
     }
 
+    @Transactional
+    public WalletE createWallet(){
+        WalletE wallet = new WalletE();
+
+        return walletRepository.save(wallet);
+    }
 }
