@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import saeed.sorkh.SimpleBank.data.wallet.WalletE;
 
 import java.util.Date;
 
@@ -32,6 +33,10 @@ public class UserE {
     @Column(name = "creation_date", nullable = false)
     @CreationTimestamp
     private Date creationDate;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "wallet_id", referencedColumnName = "id", unique = true)
+    private WalletE wallet;
 
     // name, lastName, username, hashed password and...
 
