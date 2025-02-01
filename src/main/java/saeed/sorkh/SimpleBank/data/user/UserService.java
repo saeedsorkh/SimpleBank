@@ -14,7 +14,7 @@ public class UserService {
 
     public UserE getById(Long id) {
         return userRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("user with id '" + id + "' not found :)"));
+                .orElseThrow(() -> new EntityNotFoundException("User with id '" + id + "' not found :)"));
     }
 
     public Long getUserBalance(Long userId) {
