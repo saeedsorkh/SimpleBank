@@ -2,6 +2,7 @@ package saeed.sorkh.SimpleBank.data.money_transition;
 
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import saeed.sorkh.SimpleBank.data.money_transition.util.TransitionAmountReport;
 import saeed.sorkh.SimpleBank.data.user.UserService;
 import saeed.sorkh.SimpleBank.data.wallet.WalletE;
 import saeed.sorkh.SimpleBank.data.wallet.WalletService;
@@ -69,5 +70,14 @@ public class MoneyTransitionService {
             return generateReferenceId();
 
         return referralCode.toString();
+    }
+
+    public TransitionAmountReport calculateAllTransitionAmounts() {
+        Object[] amounts = (Object[]) moneyTransitionRepository.calculateAllTransitionAmounts();
+        return new TransitionAmountReport(
+                ((Number) amounts[0]).longValue(),
+                ((Number) amounts[1]).longValue(),
+                ((Number) amounts[2]).longValue()
+        );
     }
 }
