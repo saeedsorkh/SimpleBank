@@ -10,7 +10,11 @@ import saeed.sorkh.SimpleBank.data.wallet.WalletE;
 import java.util.Date;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users",
+        indexes = {
+                @Index(name = "inx_users_full", columnList = "wallet_id, creation_date")
+        }
+)
 @Getter
 @Setter
 @NoArgsConstructor

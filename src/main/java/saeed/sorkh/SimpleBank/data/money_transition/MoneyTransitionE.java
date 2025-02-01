@@ -12,7 +12,13 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "money_transition")
+@Table(name = "money_transition",
+        indexes = {
+                @Index(name = "inx_money_transition_full", columnList = "wallet_id, creation_date"),
+                @Index(name = "inx_money_transition_cd", columnList = "creation_date"),
+                @Index(name = "inx_money_transition_ref", columnList = "referenceId")
+        }
+)
 @Getter
 @Setter
 @NoArgsConstructor
