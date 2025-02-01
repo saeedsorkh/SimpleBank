@@ -12,9 +12,13 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public UserE getById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("user with id '" + id + "' not found :)"));
+    }
+
     public Long getUserBalance(Long userId) {
-        UserE user = userRepository.findById(userId)
-                .orElseThrow(() -> new EntityNotFoundException("user with id '" + userId + "' not found :)"));
+        UserE user = getById(userId);
 
         return user.getWallet().getBalance();
     }
