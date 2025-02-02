@@ -30,9 +30,9 @@ public class ScheduleService {
 
         StringBuilder moneyTransitionLogs = new StringBuilder();
         moneyTransitionLogs.append("Money transition logs in: '").append(LocalDateTime.now()).append("': \n");
-        moneyTransitionLogs.append("Total transitions: ").append(transitionAmountReport.getTotalAmount()).append("\n");
-        moneyTransitionLogs.append("Total deposit transitions: ").append(transitionAmountReport.getTotalDeposit()).append("\n");
-        moneyTransitionLogs.append("Total withdraw transitions: ").append(transitionAmountReport.getTotalWithdraw()).append("\n");
+        moneyTransitionLogs.append("Total transitions: ").append(transitionAmountReport.totalAmount()).append("\n");
+        moneyTransitionLogs.append("Total deposit transitions: ").append(transitionAmountReport.totalDeposit()).append("\n");
+        moneyTransitionLogs.append("Total withdraw transitions: ").append(transitionAmountReport.totalWithdraw()).append("\n");
         return moneyTransitionLogs.toString();
     }
 }
