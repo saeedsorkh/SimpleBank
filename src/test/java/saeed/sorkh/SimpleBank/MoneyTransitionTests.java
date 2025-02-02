@@ -61,4 +61,12 @@ public class MoneyTransitionTests {
                 () -> moneyTransitionService.transferMoney(user.getId(), -100L)
         );
     }
+
+    @Test
+    public void testGenerateReferenceId() {
+        String referenceId = moneyTransitionService.generateReferenceId();
+
+        Assertions.assertEquals(MoneyTransitionService.REFERENCE_ID_LENGTH, referenceId.length());
+    }
+
 }

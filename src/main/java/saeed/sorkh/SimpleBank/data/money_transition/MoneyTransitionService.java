@@ -14,7 +14,7 @@ import java.util.Random;
 @Service
 public class MoneyTransitionService {
 
-    private static final byte REFERENCE_ID_LENGTH = 11;
+    public static final byte REFERENCE_ID_LENGTH = 11;
 
     private final MoneyTransitionRepository moneyTransitionRepository;
 
